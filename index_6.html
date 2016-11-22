@@ -61,8 +61,7 @@
             for (i = 0; i < NROWS; i++) {
                 for (j = 0; j < NCOLS; j++) {
                     if (bricks[i][j] == 1) {
-                        rect(j * BRICKWIDTH, i * BRICKHEIGHT
-                            , BRICKWIDTH - PADDING, BRICKHEIGHT - PADDING);
+                        rect(j * BRICKWIDTH, i * BRICKHEIGHT, BRICKWIDTH - PADDING, BRICKHEIGHT - PADDING);
                     }
                 }
             }
@@ -78,10 +77,10 @@
             y += dy;
 
             //Have We Hit a Bricks?
-            var row = Math.floor(y/(BRICKHEIGHT+PADDING));
-            var col = Math.floor(x/(BRICKWIDTH+PADDING));
-            if(row < NROWS){
-                if(bricks[row][col] == 1){
+            var row = Math.floor(y / (BRICKHEIGHT + PADDING));
+            var col = Math.floor(x / (BRICKWIDTH + PADDING));
+            if (row < NROWS) {
+                if (bricks[row][col] == 1) {
                     dy = -dy;
                     bricks[row][col] = 0;
                 }
@@ -95,15 +94,16 @@
                 dy = -dy;
             } else if (y >= HEIGHT - radius) {
                 if (x > paddlex && x < paddlex + paddlew) {
+                    dx = -((paddlex + (paddlew/2) - x)/(paddlew)*20);
                     dy = -dy;
                 } else {
                     //Game Over
                     is_gameover = true;
                 }
             }
-            if(is_gameover){
+            if (is_gameover) {
                 window.cancelAnimationFrame(anim);
-            }else{
+            } else {
                 anim = window.requestAnimationFrame(draw);
             }
         }
@@ -134,7 +134,7 @@
         }
 
         function init_bricks() {
-            NROWS = 5;
+            NROWS = 6;
             NCOLS = 5;
             PADDING = 1;
             BRICKWIDTH = (WIDTH / NCOLS);
