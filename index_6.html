@@ -94,7 +94,7 @@
                 dy = -dy;
             } else if (y >= HEIGHT - radius) {
                 if (x > paddlex && x < paddlex + paddlew) {
-                    dx = -((paddlex + (paddlew/2) - x)/(paddlew)*20);
+                    dx = -((paddlex + (paddlew/2) - x)/(paddlew)) * 10;
                     dy = -dy;
                 } else {
                     //Game Over
